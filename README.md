@@ -49,9 +49,6 @@ What's inside:
 * Search Servers
     * [Elastic Search](https://github.com/elasticsearch/elasticsearch-php)
 * Xdebug with Webgrind
-* git, subversion
-* mc, vim, screen, tmux, curl
-
 * [Composer](http://getcomposer.org/)
 
 * Node.js with following packages:
