@@ -25,7 +25,7 @@ What's inside:
 * Webservers
     * Apache
 * Languages
-    * PHP
+    * PHP 5.5
     * PHP Module
         * cli
         * intl
