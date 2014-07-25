@@ -50,6 +50,5 @@ What's inside:
     * [Elastic Search](https://github.com/elasticsearch/elasticsearch-php)
 * Xdebug with Webgrind
 * [Composer](http://getcomposer.org/)
-
 * Node.js with following packages:
     * [LESS](http://lesscss.org)
