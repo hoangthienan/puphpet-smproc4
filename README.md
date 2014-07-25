@@ -52,3 +52,26 @@ What's inside:
 * [Composer](http://getcomposer.org/)
 * Node.js with following packages:
     * [LESS](http://lesscss.org)
+
+## Default credentials
+### MySQL
+* Username: root
+* Password: root
+* Port: 3306
+
+### PostgreSQL
+* Username: root
+* Password: root
+* Port: 5432
+
+### MongoDB
+* Port: 27017
+* 
+### Redis
+* Port: 6379
+
+### Beanstalkd
+* Port: 11300
+
+### Memcached
+* Port: 11211
