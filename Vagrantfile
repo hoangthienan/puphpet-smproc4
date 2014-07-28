@@ -94,6 +94,9 @@ Vagrant.configure("2") do |config|
         if key == "memory"
           next
         end
+        if key == "cpus"
+          next
+        end
 
         if key == "natdnshostresolver1"
           value = value ? "on" : "off"
@@ -103,6 +106,7 @@ Vagrant.configure("2") do |config|
       end
 
       virtualbox.customize ["modifyvm", :id, "--memory", "#{data['vm']['memory']}"]
+      virtualbox.customize ["modifyvm", :id, "--cpus", "#{data['vm']['cpus']}"]
 
       if data['vm']['hostname'].to_s.strip.length != 0
         virtualbox.customize ["modifyvm", :id, "--name", config.vm.hostname]
@@ -118,11 +122,15 @@ Vagrant.configure("2") do |config|
         if key == "memsize"
           next
         end
+        if key == "cpus"
+          next
+        end
 
         v.vmx["#{key}"] = "#{value}"
       end
 
       v.vmx["memsize"] = "#{data['vm']['memory']}"
+      v.vmx["numvcpus"] = "#{data['vm']['cpus']}"
 
       if data['vm']['hostname'].to_s.strip.length != 0
         v.vmx["displayName"] = config.vm.hostname
@@ -138,11 +146,15 @@ Vagrant.configure("2") do |config|
         if key == "memsize"
           next
         end
+        if key == "cpus"
+          next
+        end
 
         v.customize ["set", :id, "--#{key}", "#{value}"]
       end
 
       v.memory = "#{data['vm']['memory']}"
+      v.cpus = "#{data['vm']['cpus']}"
 
       if data['vm']['hostname'].to_s.strip.length != 0
         v.name = config.vm.hostname

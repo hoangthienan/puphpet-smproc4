@@ -290,28 +290,23 @@ if hash_key_equals($mailcatcher_values, 'install', 1) {
     }
   }
 
-  $supervisord_mailcatcher_options = sort(join_keys_to_values({
+  $mailcatcher_path = $mailcatcher_values['settings']['mailcatcher_path']
+
+  $mailcatcher_options = sort(join_keys_to_values({
     ' --smtp-ip'   => $mailcatcher_values['settings']['smtp_ip'],
     ' --smtp-port' => $mailcatcher_values['settings']['smtp_port'],
     ' --http-ip'   => $mailcatcher_values['settings']['http_ip'],
     ' --http-port' => $mailcatcher_values['settings']['http_port']
   }, ' '))
 
-  $supervisord_mailcatcher_log = empty($mailcatcher_values['settings']['log']) ? {
-    true    => '',
-    default => ">> ${mailcatcher_values['settings']['log']}"
-  }
-
-  $supervisord_mailcatcher_cmd = "/usr/local/rvm/wrappers/default/mailcatcher ${supervisord_mailcatcher_options} -f ${supervisord_mailcatcher_log}"
-
   supervisord::program { 'mailcatcher':
-    command     => $supervisord_mailcatcher_cmd,
+    command     => "${mailcatcher_path}/mailcatcher ${mailcatcher_options} -f",
     priority    => '100',
     user        => 'mailcatcher',
     autostart   => true,
     autorestart => 'true',
     environment => {
-      'PATH' => "/bin:/sbin:/usr/bin:/usr/sbin:${mailcatcher_values['settings']['mailcatcher_path']}"
+      'PATH' => "/bin:/sbin:/usr/bin:/usr/sbin:${mailcatcher_path}"
     },
     require => [
       Class['mailcatcher::config'],
@@ -995,7 +990,7 @@ if hash_key_equals($php_values, 'install', 1) {
   {
     puphpet::ini { 'sendmail_path':
       entry       => 'CUSTOM/sendmail_path',
-      value       => '/usr/local/rvm/wrappers/default/catchmail -f',
+      value       => "${mailcatcher_values['settings']['mailcatcher_path']}/catchmail -f",
       php_version => $php_values['version'],
       webserver   => $php_webserver_service_ini
     }

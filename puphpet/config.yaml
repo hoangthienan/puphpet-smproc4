@@ -5,11 +5,12 @@ vagrantfile-local:
         box_url: puphpet/centos65-x64
         hostname: vagrant.ccinteg.com
         memory: '1024'
+        cpus: '1'
         chosen_provider: virtualbox
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                6benei2WWTju:
+                YkdEqmXrfTEH:
                     host: '7692'
                     guest: '22'
         provider:
@@ -32,7 +33,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            xJOypkr0Lxy6:
+            aAlgTz7BhxRB:
                 source: 'D:\\Projects\\smproc4'
                 target: /var/www/smproc4
                 sync_type: default
@@ -61,6 +62,7 @@ server:
         - ruby
         - git-core
         - openssl
+        - wkhtmltopdf
     dot_files:
         -
             bash_aliases: null
@@ -72,8 +74,7 @@ mailcatcher:
         smtp_port: 1025
         http_ip: 0.0.0.0
         http_port: '1080'
-        mailcatcher_path: /usr/local/bin
-        log_path: /var/log/mailcatcher/mailcatcher.log
+        mailcatcher_path: /usr/local/rvm/wrappers/default
 firewall:
     install: '1'
     rules: null
@@ -91,7 +92,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        NUu9d6AW4tMX:
+        Kdl5Krz8FKJl:
             servername: smproc4.pdev
             serveraliases:
                 - www.smproc4.pdev
@@ -119,7 +120,7 @@ nginx:
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     vhosts:
-        7cDhJb7syHNZ:
+        jOOV6ne45eku:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -141,19 +142,19 @@ php:
     modules:
         php:
             - cli
-            - intl
-            - mcrypt
-            - ldap
             - gd
+            - intl
+            - ldap
+            - mcrypt
         pear: {  }
         pecl:
             - APC
             - APCu
             - memcache
             - memcached
-            - pecl_http
-            - mongo
             - WinCache
+            - mongo
+            - pecl_http
             - oauth
     ini:
         display_errors: On
@@ -180,13 +181,13 @@ mysql:
     root_password: root
     adminer: '1'
     databases:
-        udLsFGndgSKs:
+        F7NBrC0oAPII:
             grant:
                 - ALL
             name: smproc4
             host: localhost
             user: stdev
-            password: stdev            
+            password: stdev
             sql_file: /var/www/smproc4/var/migrate/sql/init.db.sql
 postgresql:
     install: '1'
