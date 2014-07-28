@@ -18,6 +18,10 @@ Go to the repository folder and launch the box
     $ cd [repo]
     $ vagrant up
 
+    $ vagrant ssh
+    $ sudo service httpd start
+    $ sudo service memcached start
+    
 What's inside:
 --------------
 * Deploy Target
