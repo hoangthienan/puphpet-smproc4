@@ -33,7 +33,7 @@ vagrantfile-local:
                     - '--parser future'
         synced_folder:
             xJOypkr0Lxy6:
-                source: 'D:\\Heroes\\Projects\\gdsvn\\smproc4'
+                source: 'D:\\Projects\\smproc4'
                 target: /var/www/smproc4
                 sync_type: default
                 rsync:
@@ -185,8 +185,8 @@ mysql:
             name: smproc4
             host: localhost
             user: stdev
-            password: stdev
-            sql_file: /var/www/smproc4/db/smproc4.sql
+            password: stdev            
+            sql_file: /var/www/smproc4/var/migrate/sql/init.db.sql
 postgresql:
     install: '1'
     settings:
