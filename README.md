@@ -75,3 +75,9 @@ What's inside:
 
 ### Memcached
 * Port: 11211
+
+### MailCatcher
+* http://smproc4.pdev:1080/
+
+### Adminer
+* http://192.168.56.101/adminer/
