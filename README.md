@@ -10,11 +10,18 @@ Download and install [VirtualBox](http://www.virtualbox.org/)
 
 Download and install [vagrant](http://vagrantup.com/)
 
+Sharing Folders with Local VM, default
+* source: 'D:\\Projects\\smproc4'
+
 Go to the repository folder and launch the box
 
     $ cd [repo]
     $ vagrant up
 
+    $ vagrant ssh
+    $ sudo service httpd start
+    $ sudo service memcached start
+    
 What's inside:
 --------------
 * Deploy Target
@@ -66,7 +73,7 @@ What's inside:
 
 ### MongoDB
 * Port: 27017
-* 
+
 ### Redis
 * Port: 6379
 
