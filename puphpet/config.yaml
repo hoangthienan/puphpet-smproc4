@@ -33,7 +33,7 @@ vagrantfile-local:
                     - '--parser future'
         synced_folder:
             xJOypkr0Lxy6:
-                source: 'D:\\Projects\\smproc4'
+                source: 'D:\\Heroes\\Projects\\gdsvn\\smproc4'
                 target: /var/www/smproc4
                 sync_type: default
                 rsync:
