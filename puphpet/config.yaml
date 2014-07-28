@@ -93,9 +93,9 @@ apache:
         - rewrite
     vhosts:
         Kdl5Krz8FKJl:
-            servername: smproc4.pdevhost
+            servername: smproc4.pdev
             serveraliases:
-                - www.smproc4.pdevhost
+                - www.smproc4.pdev
             docroot: /var/www/smproc4/web
             port: '80'
             setenv:
