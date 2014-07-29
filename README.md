@@ -10,7 +10,7 @@ Download and install [VirtualBox](http://www.virtualbox.org/)
 
 Download and install [vagrant](http://vagrantup.com/)
 
-Sharing Folders with Local VM, default
+Edit Sharing Folders with Local VM (puphpet/config.yaml), default
 * source: 'D:\\Projects\\smproc4'
 
 Go to the repository folder and launch the box
